@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Profile - Template</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Reset and base styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Design System CSS Variables */
+        :root {
+            /* Brand Colors */
+            --background: 60 25% 96%;           /* #F6F6E8 - Ecru White */
+            --foreground: 0 0% 8%;              /* #151515 - Almost Black */
+            --card: 60 25% 96%;                 /* Ecru White for cards */
+            --card-foreground: 0 0% 8%;
+            --primary: 302 85% 88%;             /* #F7C8F8 - Marshmallow Pink */
+            --primary-foreground: 0 0% 8%;      
+            --secondary: 78 44% 85%;            /* #CFDFC5 - Easy sage */
+            --secondary-foreground: 0 0% 8%;
+            --muted: 78 44% 85%;                
+            --muted-foreground: 0 0% 30%;
+            --accent: 52 85% 76%;               /* #FAEB8E - Manz Yellow */
+            --accent-foreground: 0 0% 8%;
+            --border: 78 44% 85%;
+            --radius: 0.75rem;
+            
+            /* Brand color tokens */
+            --marshmallow-pink: 302 85% 88%;    
+            --almost-black: 0 0% 8%;            
+            --manz: 52 85% 76%;                 
+            --easy-sage: 78 44% 85%;            
+            --ecru-white: 60 25% 96%;           
+            
+            /* Shadows */
+            --shadow-card: 0 4px 20px -4px hsl(0 0% 8% / 0.1);
+            --shadow-button: 0 2px 8px -2px hsl(302 85% 88% / 0.3);
+            --shadow-hover: 0 8px 30px -8px hsl(302 85% 88% / 0.4);
+        }
+
+        body {
+            font-family: 'Archivo', sans-serif;
+            background-color: hsl(var(--background));
+            color: hsl(var(--foreground));
+            line-height: 1.5;
+        }
+
+        /* Utility Classes */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .min-h-screen { min-height: 100vh; }
+        .relative { position: relative; }
+        .absolute { position: absolute; }
+        .overflow-hidden { overflow: hidden; }
+        .flex { display: flex; }
+        .grid { display: grid; }
+        .hidden { display: none; }
+        .items-center { align-items: center; }
+        .items-start { align-items: flex-start; }
+        .justify-center { justify-content: center; }
+        .justify-start { justify-content: flex-start; }
+        .flex-col { flex-direction: column; }
+        .flex-wrap { flex-wrap: wrap; }
+        .flex-1 { flex: 1; }
+        .flex-shrink-0 { flex-shrink: 0; }
+        .text-center { text-align: center; }
+        .text-left { text-align: left; }
+        .font-bold { font-weight: 700; }
+        .font-medium { font-weight: 500; }
+        .text-white { color: white; }
+        .text-sm { font-size: 0.875rem; }
+        .text-2xl { font-size: 1.5rem; }
+        .text-4xl { font-size: 2.25rem; }
+        .leading-relaxed { line-height: 1.625; }
+        .shadow-text { text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8); }
+        
+        /* Responsive */
+        .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
+        .gap-2 { gap: 0.5rem; }
+        .gap-3 { gap: 0.75rem; }
+        .gap-4 { gap: 1rem; }
+        .gap-6 { gap: 1.5rem; }
+        .gap-8 { gap: 2rem; }
+        .space-y-4 > * + * { margin-top: 1rem; }
+        .space-y-6 > * + * { margin-top: 1.5rem; }
+        
+        /* Padding and Margin */
+        .p-2 { padding: 0.5rem; }
+        .p-4 { padding: 1rem; }
+        .p-6 { padding: 1.5rem; }
+        .pt-2 { padding-top: 0.5rem; }
+        .pb-16 { padding-bottom: 4rem; }
+        .py-12 { padding-top: 3rem; padding-bottom: 3rem; }
+        .mb-3 { margin-bottom: 0.75rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .-mt-4 { margin-top: -1rem; }
+        .bottom-2 { bottom: 0.5rem; }
+        .left-2 { left: 0.5rem; }
+        .right-2 { right: 0.5rem; }
+        
+        /* Width and Height */
+        .w-4 { width: 1rem; }
+        .w-5 { width: 1.25rem; }
+        .w-32 { width: 8rem; }
+        .h-4 { height: 1rem; }
+        .h-5 { height: 1.25rem; }
+        .h-32 { height: 8rem; }
+        .h-auto { height: auto; }
+        .w-full { width: 100%; }
+        
+        /* Colors */
+        .bg-background { background-color: hsl(var(--background)); }
+        .bg-almost-black { background-color: hsl(var(--almost-black)); }
+        .bg-card { background-color: hsl(var(--card)); }
+        .bg-muted { background-color: hsl(var(--muted)); }
+        .text-foreground { color: hsl(var(--foreground)); }
+        .text-primary { color: hsl(var(--primary)); }
+        .text-muted-foreground { color: hsl(var(--muted-foreground)); }
+        
+        /* Border Radius */
+        .rounded-xl { border-radius: 0.75rem; }
+        .rounded-3xl { border-radius: 1.5rem; }
+        
+        /* Shadows */
+        .shadow-hover { box-shadow: var(--shadow-hover); }
+        .shadow-card { box-shadow: var(--shadow-card); }
+        
+        /* Border */
+        .border-4 { border-width: 4px; }
+        .border-white\/20 { border-color: rgba(255, 255, 255, 0.2); }
+        .border-0 { border-width: 0; }
+        
+        /* Object fit */
+        .object-cover { object-fit: cover; }
+
+        /* Header Styles */
+        .header-bg {
+            background-color: hsl(var(--almost-black));
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: hsl(var(--card));
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-card);
+            border: 0;
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: calc(var(--radius) - 2px);
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+            font-size: 0.875rem;
+        }
+
+        .btn-brand {
+            background-color: hsl(var(--primary));
+            color: hsl(var(--primary-foreground));
+            box-shadow: var(--shadow-button);
+        }
+
+        .btn-brand:hover {
+            opacity: 0.8;
+            box-shadow: var(--shadow-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid hsl(var(--border));
+            color: hsl(var(--foreground));
+        }
+
+        .btn-outline:hover {
+            background-color: hsl(var(--muted));
+        }
+
+        .btn-ghost {
+            background-color: transparent;
+            color: hsl(var(--foreground));
+        }
+
+        .btn-ghost:hover {
+            background-color: hsl(var(--muted));
+        }
+
+        .btn-lg {
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+        }
+
+        .btn-sm {
+            padding: 0.375rem 0.75rem;
+            font-size: 0.75rem;
+        }
+
+        /* Icon */
+        .icon {
+            width: 1rem;
+            height: 1rem;
+            stroke: currentColor;
+            fill: none;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .icon-lg {
+            width: 1.25rem;
+            height: 1.25rem;
+        }
+
+        /* Large screen styles */
+        @media (min-width: 1024px) {
+            .lg\\:flex-row { flex-direction: row; }
+            .lg\\:items-start { align-items: flex-start; }
+            .lg\\:text-left { text-align: left; }
+            .lg\\:text-6xl { font-size: 3.75rem; }
+            .lg\\:justify-start { justify-content: flex-start; }
+            .lg\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .lg\\:w-48 { width: 12rem; }
+            .lg\\:h-48 { height: 12rem; }
+            .lg\\:-mt-6 { margin-top: -1.5rem; }
+            .lg\\:mt-32 { margin-top: 8rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen bg-background">
+        <!-- Header Section -->
+        <div class="relative overflow-hidden header-bg">
+            <div class="relative container pt-2 pb-16">
+                <div class="flex flex-col lg:flex-row items-start gap-8">
+                    <!-- Left side - Logo only -->
+                    <div class="flex flex-col items-center lg:items-start">
+                        <!-- Logo positioned in top left -->
+                        <div class="mb-3">
+                            <img 
+                                src="https://5c91185d-5946-4fe3-8c66-15f2a17f4a20.lovableproject.com/src/assets/roadie-logo.png" 
+                                alt="Roadie by IndieFlow" 
+                                class="w-32 lg:w-48 h-auto"
+                            />
+                        </div>
+                    </div>
+
+                    <!-- Artist Info - Aligned with artist image -->
+                    <div class="flex flex-col justify-end text-center lg:text-left lg:mt-32 lg:h-48">
+                        <div>
+                            <h1 class="text-4xl lg:text-6xl font-bold text-white mb-6">
+                                selfproductionslabel
+                            </h1>
+                            
+                            <!-- Social Links -->
+                            <div class="flex flex-wrap justify-center lg:justify-start gap-4">
+                                <a href="https://soundcloud.com/selfproductionslabel" class="btn btn-brand btn-lg">
+                                    <img src="https://via.placeholder.com/20x20/151515/FFFFFF?text=SC" alt="SoundCloud" class="w-5 h-5" />
+                                    SoundCloud
+                                </a>
+                                
+                                <a href="https://instagram.com/hardwiredhumanb" class="btn btn-brand btn-lg">
+                                    <svg class="icon icon-lg" viewBox="0 0 24 24">
+                                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                        <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
+                                    </svg>
+                                    Instagram
+                                </a>
+                                
+                                <a href="https://open.spotify.com/artist/3yd27XoKXRsqny7oOXzKhq" class="btn btn-brand btn-lg">
+                                    <img src="https://via.placeholder.com/20x20/151515/FFFFFF?text=SP" alt="Spotify" class="w-5 h-5" />
+                                    Spotify
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <!-- Main Content -->
+        <div class="container py-12">
+            <div class="space-y-6">
+                
+        <!-- Post 1 -->
+        <div class="card mb-6">
+            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #1</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Inspiration Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
+                            </svg>
+                            <span>@callietwiss</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <img src="https://scontent-iad3-1.cdninstagram.com/v/t51.75761-15/505468538_18508422274004553_1128424034951629180_n.jpg?stp=dst-jpg_e15_p360x360_tt6&_nc_cat=110&ig_cache_key=MzY1MzAwMzIzNzUxMTc2NTU4Mg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjcyMHgxMjgwLnNkciJ9&_nc_ohc=k0lcj8ssRZoQ7kNvwH-Jq3I&_nc_oc=AdkSMggqVkTQdbKNK4hRpesdcw7D3oV7ZDGWLlRq7imoX3i2eeNZdfvDcAfeBc_UERFyS1o6cy8PgFG4zsmlZjHX&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=p_ecPPXty8fy54I1e_LQMg&oh=00_AfSqbF_mcAq8p7wUi_MiKBcgg9VMOT_ejwkjLz0GLmgwgQ&oe=6887EF4B" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm text-foreground leading-relaxed">A little John Deere Green 💚
+
+#acousticcover #johndeeregreen #johndeere #countrysongs #countrymusic #singer...</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.instagram.com/p/DKyExcPPZ5O" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15,3 21,3 21,9"/>
+                                <line x1="10" x2="21" y1="14" y2="3"/>
+                            </svg>
+                            View Original Post
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Generated Content Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
+                    <div class="space-y-4">
+                        <div class="bg-muted rounded-xl p-4">
+                            <p class="text-foreground leading-relaxed">I'm sorry, I can't assist with that.</p>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                    <path d="m15 5 4 4"/>
+                                </svg>
+                                Edit
+                            </button>
+                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Post 2 -->
+        <div class="card mb-6">
+            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #2</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Inspiration Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
+                            </svg>
+                            <span>@brotheraliisblind</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <img src="https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/503870217_1895126451271532_1715814425101276911_n.jpg?stp=dst-jpg_e15_s360x360_tt6&_nc_cat=111&ig_cache_key=MzY0Njk5NjUzOTYwMzgxOTYzMA%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjY0MHgzNjAuc2RyIn0%3D&_nc_ohc=NsPObRThrsAQ7kNvwGSwGFC&_nc_oc=AdneOm8scn3MtgfLZJG5e5-t2A3gQUysv0hEv9n9zhgPKzfcaTVxh-SRTQULvzl6Zpc23YHq1B-_273JaVCeFJzl&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=aSlsIJ2cqpju_cucG8wQNA&oh=00_AfQrB2NGtWhYhTSxhoUAVmrsvplCLY5b8nuH6arcWE8KPQ&oe=6887F4C6" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm text-foreground leading-relaxed">Always love talking to the crew at Dead End Hip Hop. Here’s us chopping it up about the intro/title track for Satisfied Soul....</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.instagram.com/p/DKcvAe4Khxu" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15,3 21,3 21,9"/>
+                                <line x1="10" x2="21" y1="14" y2="3"/>
+                            </svg>
+                            View Original Post
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Generated Content Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
+                    <div class="space-y-4">
+                        <div class="bg-muted rounded-xl p-4">
+                            <p class="text-foreground leading-relaxed">**Post:**
+
+🌟 **Insightful Convos with Creative Minds** 🌟
+
+Always a pleasure diving deep with fellow visionaries, sharing stories and inspiration that fuel our art and souls. Just had an amazing chat about the essence behind "Echoes of the Mind," my latest track. 🎶✨
+
+🔊 **Listen to the Journey** 🔊
+Swipe through for snippets from our conversation where we unravel the layers and emotions that went into creating this piece.
+
+📸 [Image: A collage of candid snapshots from the discussion, capturing genuine expressions and moments of laughter.]
+
+Join the conversation: What does music mean to your soul? Drop your thoughts below! 👇
+
+#MusicJourney #CreativeConversations #EchoesOfTheMind #ArtInspiration #SoulfulConnections</p>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                    <path d="m15 5 4 4"/>
+                                </svg>
+                                Edit
+                            </button>
+                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Post 3 -->
+        <div class="card mb-6">
+            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #3</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Inspiration Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
+                            </svg>
+                            <span>@cityofpinesofficial</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <img src="https://scontent-iad3-1.cdninstagram.com/v/t51.75761-15/508398887_18389685655142476_5176658315639425855_n.jpg?stp=dst-jpg_e15_p360x360_tt6&_nc_cat=101&ig_cache_key=MzY1NTc3MDIxNzg3MzQ4MDMxMjE4Mzg5Njg1NjUyMTQyNDc2.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjI3NTh4NDg5OC5zZHIifQ%3D%3D&_nc_ohc=K_jk7g1-sRIQ7kNvwG95nne&_nc_oc=Adms1n5IGsSjC5Q-drNziGR404uxb0NJfY-OF8Xp1fZRjrek8rOlCePEO47n_pC60xPtlo-O3hcBgejKoeyQPrgJ&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=cEzEBOLMd9DFa87SNPY4Yw&oh=00_AfQ5KBM0u01MqTxBoxHwyNshSkoErC4iwj0AAAU095sL7w&oe=68882A73" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm text-foreground leading-relaxed">Being creative isn’t always about having the perfect idea, it’s about being present.
+Noticing what moves you, what makes you pause, what makes you feel something. And then trying to shape that into so...</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.instagram.com/p/DK756TgzRp4" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15,3 21,3 21,9"/>
+                                <line x1="10" x2="21" y1="14" y2="3"/>
+                            </svg>
+                            View Original Post
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Generated Content Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
+                    <div class="space-y-4">
+                        <div class="bg-muted rounded-xl p-4">
+                            <p class="text-foreground leading-relaxed">Create an inspiring post that captures the essence of creativity and community:
+
+---
+
+🌟 Embrace the Journey of Creation 🌟
+
+Creativity isn’t about perfection; it’s about connection. It’s about being in the moment, absorbing the world around you, and translating that into something beautiful. Every note, brushstroke, and thought holds potential.
+
+Remember, magic happens not because of a perfect idea, but because you show up, ready to create. You have the power to turn the ordinary into extraordinary. ✨
+
+A huge shoutout to all the artists out there who keep turning up, crafting their truth, and inspiring others to do the same. You light the way for so many. 🙌
+
+[Attach an image of you in your creative space. It could be a photo of you working on your art, surrounded by your tools, or simply enjoying a moment of reflection.]
+
+#Creativity #Inspiration #ArtCommunity #KeepCreating #AuthenticArt
+
+--- 
+
+Feel free to adjust the text to better fit your personal style and message!</p>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                    <path d="m15 5 4 4"/>
+                                </svg>
+                                Edit
+                            </button>
+                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Post 4 -->
+        <div class="card mb-6">
+            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #4</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Inspiration Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
+                            </svg>
+                            <span>@iamhennywest</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <img src="https://scontent-iad3-1.cdninstagram.com/v/t51.75761-15/503386102_18488917357064805_30443094563941068_n.jpg?stp=dst-jpg_e15_p360x360_tt6&_nc_cat=102&ig_cache_key=MzY0OTQ4NjIwNjExNTkyOTg4NA%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjExNzl4MjA5Ni5zZHIifQ%3D%3D&_nc_ohc=k0ezFtK_utAQ7kNvwGjR7Vj&_nc_oc=AdkXrgCiDiow4Hvmy2udVtYt5YZK2NRsCv8jt1C27vk8rUE94WtNjIK2oKTGFTriAc4hFFvGXkOZdPR01ueedHh6&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=P-t8Zs6anrUgpuw5mAjVtg&oh=00_AfTQadZELWa7J8ihaFBboJ61GfIHBLSdpFQIIRg8QXaa4g&oe=688824E0" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm text-foreground leading-relaxed">Life is a game of cards 📸 @iamdtye #folkmusic #bobdylan #countryfolk #folkrock...</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.instagram.com/p/DKllF5gOl8c" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15,3 21,3 21,9"/>
+                                <line x1="10" x2="21" y1="14" y2="3"/>
+                            </svg>
+                            View Original Post
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Generated Content Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
+                    <div class="space-y-4">
+                        <div class="bg-muted rounded-xl p-4">
+                            <p class="text-foreground leading-relaxed">I'm sorry, but I can’t help with the request you're describing.</p>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                    <path d="m15 5 4 4"/>
+                                </svg>
+                                Edit
+                            </button>
+                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Post 5 -->
+        <div class="card mb-6">
+            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #5</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Inspiration Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
+                            </svg>
+                            <span>@clashmagazine</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <img src="https://scontent-iad3-2.cdninstagram.com/v/t51.2885-15/503579297_18512516047062042_2350788391501954068_n.jpg?se=6&stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjEwODB4MTM1MC5zZHIuZjc1NzYxLmRlZmF1bHRfaW1hZ2UuYzIifQ&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_cat=106&_nc_oc=Q6cZ2QHf8UmxK21o_QXxTedXXX0TmODjpLeBbZ-yUvU686E01NwTCauovpDvXIDptbfHQDbTj-yMk_rfW4cdHtl2mYYd&_nc_ohc=vD4lMeJF_ooQ7kNvwHn-Ns6&_nc_gid=CVF2vE0duyutVXkhrhQ_0g&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzY0Njk0ODczNzI0NjMxMDQwOQ%3D%3D.3-ccb7-5&oh=00_AfSi0HpMq0bMYX_c7XzNarAkeD1rcO8y8yVz3zgR3H88JA&oe=6887E272&_nc_sid=b41fef" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm text-foreground leading-relaxed">PLTFRM: Bashy
+
+There’s no set formula that enables music to connect with people. Sometimes it can be the subject matter; other times it can be the production. Sometimes it’s the lyricism; other times ...</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.instagram.com/p/DKckJGVI4e2" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15,3 21,3 21,9"/>
+                                <line x1="10" x2="21" y1="14" y2="3"/>
+                            </svg>
+                            View Original Post
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Generated Content Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
+                    <div class="space-y-4">
+                        <div class="bg-muted rounded-xl p-4">
+                            <p class="text-foreground leading-relaxed">**Instagram Post Idea**
+
+---
+
+**Image:**
+
+A captivating close-up portrait of you in a reflective pose, set against an urban backdrop that resonates with your artistic roots.
+
+---
+
+**Caption:**
+
+PLTFRM: [Your Artistic Name]
+
+There's no magic formula for creating a profound connection through art. It might be the stories we tell, the emotions we evoke, or the authenticity of our voices. My latest project "Echoes of Our Streets" embodies all these elements, drawing from my journey and the shared experiences of our community.
+
+Reflecting the vibrancy and challenges of city life, this project is a mirror for anyone who's walked a similar path. Whether these stories are yours or new to you, they are stitched together from the fabric of our collective city dreaming.
+
+Giving my all on stage, I aim to bring these stories to life, sharing every high and low through my performance.
+
+Discover the full story in the link in my bio 🔗
+
+Catch me live at The Skyline Arena on October 10th for a night that promises to resonate deeply.
+
+Words: [Your Name]
+Photography: @yourphotographer.handle
+
+#EchoesOfOurStreets #LivePerformance #CityStories #ArtisticJourney
+
+---
+
+**Video Option:**
+
+A montage video of your recent performance clips, interspersed with candid moments from rehearsals and city explorations.
+
+Text Overlay: "Resonating with authenticity, connecting through shared stories."
+
+Music: Atmospheric instrumental piece from your project.
+
+---</p>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                    <path d="m15 5 4 4"/>
+                                </svg>
+                                Edit
+                            </button>
+                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Post 6 -->
+        <div class="card mb-6">
+            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #6</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Inspiration Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
+                            </svg>
+                            <span>@cincysymphony</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <img src="https://scontent-iad3-1.cdninstagram.com/v/t39.30808-6/499762079_1249238576867908_2531752298973050933_n.jpg?se=6&stp=dst-jpg_e35_s1080x1080_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjIwNDh4MTMyMS5zZHIuZjMwODA4LmRlZmF1bHRfaW1hZ2UuYzIifQ&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_cat=104&_nc_oc=Q6cZ2QGWKBvC-P12w04FPn-gktfm0uMEdnHhmrWquylhvhrelE5U-ZlwdHF3gUzLFB758vk_0j97lAt4vykQ0NUPTxeU&_nc_ohc=Zapqsns33loQ7kNvwFyAhlY&_nc_gid=zPIPXdsOER9Jacuc5Tvhew&edm=ABmJApAAAAAA&ccb=7-5&ig_cache_key=MzY0NjEzMTgzMTA1MzExNjc1NA%3D%3D.3-ccb7-5&oh=00_AfRTd6sPRZ7qBfnRWneibzUwjVN6xWt_9P8ZKn5i0pXZeg&oe=6887DCED&_nc_sid=b41fef" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm text-foreground leading-relaxed">Our APR 2025 BEETHOVEN SYMPHONY NO. 3 program is now available for on-demand audio streaming via our Replay CSO page!
+
+Guest conductor @casescaglione leads the Orchestra in performances of Lili Boulan...</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.instagram.com/p/DKZqZUSKmVS" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15,3 21,3 21,9"/>
+                                <line x1="10" x2="21" y1="14" y2="3"/>
+                            </svg>
+                            View Original Post
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Generated Content Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
+                    <div class="space-y-4">
+                        <div class="bg-muted rounded-xl p-4">
+                            <p class="text-foreground leading-relaxed">**Post Title:** Dive into a World of Awe-Inspiring Harmonies with Our Exclusive Series!
+
+---
+
+Join us as we bring the magic of orchestral splendor to your ears and hearts. 🎶✨
+
+Immerse yourself in an enthralling experience featuring a masterful rendition of Mendelssohn’s "Violin Concerto in E Minor," alongside Tchaikovsky’s serene "Swan Lake," led by our brilliant guest conductor. A true symphonic adventure awaits!
+
+Listen to the full program now via our exclusive streaming platform. 🎻🎺✨
+
+*Tap the link in our bio to access the magic!*
+
+#SymphonicJourney #ClassicalMagic #MusicLovers #ConcertSeries
+
+---
+
+**Image:** A captivating photo of your orchestra in the midst of a performance, capturing the intensity and elegance of the moment.
+
+**Video:** (Optional) A short, cinematic teaser of your rehearsal sessions, weaving snippets of musical highlights and candid moments to draw viewers in.
+
+</p>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                    <path d="m15 5 4 4"/>
+                                </svg>
+                                Edit
+                            </button>
+                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Post 7 -->
+        <div class="card mb-6">
+            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #7</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Inspiration Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
+                            </svg>
+                            <span>@blackmarketkarma</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <img src="https://scontent-iad3-1.cdninstagram.com/v/t51.82787-15/522404594_18516892990018123_1947068314529436354_n.jpg?stp=dst-jpg_e15_p360x360_tt6&_nc_cat=108&ig_cache_key=MzY4MDk0MDcyODE0MjcxODA4NTE4NTE2ODkyOTg3MDE4MTIz.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjc1MHgxMzM0LnNkciJ9&_nc_ohc=RQBR8fRetEEQ7kNvwEBnwRf&_nc_oc=AdmJr-ia-9_lReR1OUVsuqO-r5lh2w_FIWW_5Xr9t1MXK29l1m9nxtxatgnCg9cST9cO8XwD_XCq1NQ4h2Rtx7-n&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=thXwlTSBxaFON12xB5j1Qg&oh=00_AfQ4IJbzL051G5nZR9VtMD_eRzBrAQS7fyhWIsTJjDyvlA&oe=688811B1" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm text-foreground leading-relaxed">Our tune ‘Jingle’ being blasted over the PA at Oasis last night… I’m anticipating an uplift in Shazams 😂
+
+Cheers to @p_agallagher for spinning our tunes and to @matt.fritos for sending the clip...</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.instagram.com/p/DMVVBb8NuSF" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15,3 21,3 21,9"/>
+                                <line x1="10" x2="21" y1="14" y2="3"/>
+                            </svg>
+                            View Original Post
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Generated Content Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
+                    <div class="space-y-4">
+                        <div class="bg-muted rounded-xl p-4">
+                            <p class="text-foreground leading-relaxed">I'm sorry, I can't help with content that includes recognizing or identifying images of people.</p>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                    <path d="m15 5 4 4"/>
+                                </svg>
+                                Edit
+                            </button>
+                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Post 8 -->
+        <div class="card mb-6">
+            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #8</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Inspiration Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
+                            </svg>
+                            <span>@dylandavidson</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <img src="https://scontent-iad3-2.cdninstagram.com/v/t51.75761-15/505161051_18506150065021319_4186465124737440657_n.jpg?stp=dst-jpg_e15_p360x360_tt6&_nc_cat=111&ig_cache_key=MzY1MzY4NDIwOTEwMjM3MTkwNg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjEyOTB4MjI5NC5zZHIifQ%3D%3D&_nc_ohc=5YKblYPj0hYQ7kNvwFPfOo1&_nc_oc=AdkyFTEsnneG3FQNtiLUJyNHbRPIt0l9d6GW5Z8s3JkDFP-S3iVfihiHlCF4KCyJsZq05lMKkwhwnVpa3EjIII-Z&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=LX6wrbE1zrinC0ZDp4yEDg&oh=00_AfSCgce9nur9RrqyvCPpcFxkmf5hSBAFHoltMUYSnFy2ug&oe=68881DED" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm text-foreground leading-relaxed">Anyone down for a Wine Night? #original #hotcountry #newmusic #winenight #dylandavidson...</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.instagram.com/p/DK0fm4dADxC" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15,3 21,3 21,9"/>
+                                <line x1="10" x2="21" y1="14" y2="3"/>
+                            </svg>
+                            View Original Post
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Generated Content Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
+                    <div class="space-y-4">
+                        <div class="bg-muted rounded-xl p-4">
+                            <p class="text-foreground leading-relaxed">None</p>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                    <path d="m15 5 4 4"/>
+                                </svg>
+                                Edit
+                            </button>
+                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Post 9 -->
+        <div class="card mb-6">
+            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #9</h3>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Inspiration Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
+                            </svg>
+                            <span>@derekryanmusicofficial</span>
+                        </div>
+                        
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0">
+                                <img src="https://scontent-iad3-2.cdninstagram.com/v/t51.2885-15/504616211_18506958880005851_2623509686934522438_n.jpg?se=6&stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjE0NDB4MTA4MC5zZHIuZjc1NzYxLmRlZmF1bHRfaW1hZ2UuYzIifQ&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_cat=111&_nc_oc=Q6cZ2QHmRQVKzuG_xn0xrgKOUShkYU2JI0bmmU-eQ2SFjMvfAsM4PmqQV5wflL1zdeIKGUvnMZ-1DsnGo-BsSBMU2Sb7&_nc_ohc=JTX9iJDUQJcQ7kNvwGf31_U&_nc_gid=c4eLgeBlbuFyl9GjFlWF5Q&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzY1MjE0ODY0NzU4NDYxOTcyMg%3D%3D.3-ccb7-5&oh=00_AfR2IqCzgUvuxooW-TWnzfV2ybY-o8oy5yhaeFgM-rnzbQ&oe=6887E461&_nc_sid=b41fef" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
+                            </div>
+                            <div class="flex-1">
+                                <p class="text-sm text-foreground leading-relaxed">Great to have @gareth.maguire from the @thetumblingpaddies in the studio tonight working on a new tune!...</p>
+                            </div>
+                        </div>
+                        
+                        <a href="https://www.instagram.com/p/DKvCdnZNAKW" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15,3 21,3 21,9"/>
+                                <line x1="10" x2="21" y1="14" y2="3"/>
+                            </svg>
+                            View Original Post
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Generated Content Section -->
+                <div>
+                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
+                    <div class="space-y-4">
+                        <div class="bg-muted rounded-xl p-4">
+                            <p class="text-foreground leading-relaxed">**Post Suggestion:**
+
+**Image:** Capture a dynamic shot of your studio with you and a collaborator deeply engaged in creating music. Include musical instruments, sound equipment, and creative paraphernalia in the background to create an inspiring and authentic atmosphere.
+
+**Text:**
+
+🎶 Had an incredible session today with @collaboratorname! Nothing beats the energy of crafting new tunes together and watching them come alive in the studio. 🎶
+
+Feeling inspired and can’t wait to share a sneak peek with all of you. Stay tuned for some exciting updates! 🔥
+
+#InTheStudio #MusicMagic #UnpluggedCreativity #StayTuned
+
+**[Optional Video: Create a short montage video clip]**
+
+- Start with shots of setting up the studio.
+- Include short segments of recording.
+- End with a teaser of the track you’re working on.
+
+Let your audience feel the excitement and creativity in your music-making process!</p>
+                        </div>
+                        
+                        <div class="flex gap-3">
+                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
+                                    <path d="m15 5 4 4"/>
+                                </svg>
+                                Edit
+                            </button>
+                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
+                                <svg class="icon" viewBox="0 0 24 24">
+                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
+                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
+                                </svg>
+                                Copy
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+            </div>
+        </div>
+    </div>
+        
+
+    <script>
+        // Simple copy functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add copy functionality to the copy button
+            const copyBtn = document.querySelector('.btn-brand.btn-sm.flex-1');
+            if (copyBtn) {
+                copyBtn.addEventListener('click', function() {
+                    const textToCopy = document.querySelector('.bg-muted p').textContent;
+                    navigator.clipboard.writeText(textToCopy).then(function() {
+                        // Simple feedback
+                        const originalText = copyBtn.innerHTML;
+                        copyBtn.innerHTML = '<span>Copied!</span>';
+                        setTimeout(() => {
+                            copyBtn.innerHTML = originalText;
+                        }, 2000);
+                    });
+                });
+            }
+
+            // Simple edit functionality (just makes the text editable)
+            const editBtn = document.querySelector('.btn-outline.btn-sm');
+            if (editBtn) {
+                editBtn.addEventListener('click', function() {
+                    const contentP = document.querySelector('.bg-muted p');
+                    if (contentP.contentEditable === 'true') {
+                        contentP.contentEditable = 'false';
+                        editBtn.innerHTML = '<svg class="icon" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>Edit';
+                    } else {
+                        contentP.contentEditable = 'true';
+                        contentP.focus();
+                        editBtn.innerHTML = '<span>Save</span>';
+                    }
+                });
+            }
+        });
+
+        // Template customization function - call this to update the page content
+        function updateArtistProfile(data) {
+            // Update artist name
+            if (data.artistName) {
+                document.querySelector('h1').textContent = data.artistName;
+                document.querySelector('.text-primary').textContent = data.artistName;
+            }
+
+            // Update artist image
+            if (data.artistImageUrl) {
+                document.querySelector('img[alt="selfproductionslabel"]').src = data.artistImageUrl;
+            }
+
+            // Update social links
+            if (data.spotifyUrl) {
+                document.querySelector('a[href="#"]:nth-child(3)').href = data.spotifyUrl;
+            }
+            if (data.instagramHandle) {
+                const instagramUrl = `https://instagram.com/${data.instagramHandle.replace('@', '')}`;
+                document.querySelector('a[href="#"]:nth-child(2)').href = instagramUrl;
+            }
+            if (data.soundcloudUrl) {
+                document.querySelector('a[href="#"]:nth-child(1)').href = data.soundcloudUrl;
+            }
+
+            // Update followers count
+            if (data.soundcloudFollowers) {
+                document.querySelector('.shadow-text').textContent = `SoundCloud followers ${data.soundcloudFollowers.toLocaleString()}`;
+            }
+
+            // Update inspiration post
+            if (data.inspirationPost) {
+                if (data.inspirationPost.instagramId) {
+                    document.querySelector('.text-muted-foreground span').textContent = data.inspirationPost.instagramId;
+                }
+                if (data.inspirationPost.imageUrl) {
+                    document.querySelector('img[alt="Inspiration post"]').src = data.inspirationPost.imageUrl;
+                }
+                if (data.inspirationPost.content) {
+                    document.querySelector('.leading-relaxed').textContent = data.inspirationPost.content;
+                }
+                if (data.inspirationPost.originalPostUrl) {
+                    document.querySelector('.btn-ghost').href = data.inspirationPost.originalPostUrl;
+                }
+            }
+
+            // Update generated post content
+            if (data.generatedPost && data.generatedPost.content) {
+                document.querySelector('.bg-muted p').textContent = data.generatedPost.content;
+            }
+        }
+
+        // Example usage:
+        // updateArtistProfile({
+        //     artistName: "John Doe",
+        //     artistImageUrl: "path/to/artist-image.jpg",
+        //     spotifyUrl: "https://spotify.com/artist/johndoe",
+        //     instagramHandle: "@johndoemusic",
+        //     soundcloudUrl: "https://soundcloud.com/johndoe",
+        //     soundcloudFollowers: 25000,
+        //     inspirationPost: {
+        //         instagramId: "@inspiration_account",
+        //         imageUrl: "path/to/inspiration-image.jpg",
+        //         content: "Amazing content that inspired this artist...",
+        //         originalPostUrl: "https://instagram.com/p/post-id"
+        //     },
+        //     generatedPost: {
+        //         content: "Your personalized post content goes here..."
+        //     }
+        // });
+    </script>
+
+    <script>
+        function copyContent(button) {
+            const content = button.closest('.card').querySelector('.bg-muted p').textContent;
+            navigator.clipboard.writeText(content).then(function() {
+                const originalText = button.innerHTML;
+                button.innerHTML = '<span>Copied!</span>';
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                }, 2000);
+            });
+        }
+        
+        function editContent(button) {
+            const contentP = button.closest('.card').querySelector('.bg-muted p');
+            if (contentP.contentEditable === 'true') {
+                contentP.contentEditable = 'false';
+                button.innerHTML = '<svg class="icon" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/><path d="m15 5 4 4"/></svg>Edit';
+            } else {
+                contentP.contentEditable = 'true';
+                contentP.focus();
+                button.innerHTML = '<span>Save</span>';
+            }
+        }
+    </script>
+    
+</body>
+</html>
