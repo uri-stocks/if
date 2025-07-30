@@ -251,48 +251,54 @@
     <div class="min-h-screen bg-background">
         <!-- Header Section -->
         <div class="relative overflow-hidden header-bg">
-            <div class="relative container pt-2 pb-16">
-                <div class="flex flex-col lg:flex-row items-start gap-8">
-                    <!-- Left side - Logo only -->
-                    <div class="flex flex-col items-center lg:items-start">
-                        <!-- Logo positioned in top left -->
-                        <div class="mb-3">
-                            <img 
-                                src="https://5c91185d-5946-4fe3-8c66-15f2a17f4a20.lovableproject.com/src/assets/roadie-logo.png" 
-                                alt="Roadie by IndieFlow" 
-                                class="w-32 lg:w-48 h-auto"
-                            />
-                        </div>
+            <div class="relative container pt-8 pb-16">
+                <!-- Centered Hero Section -->
+                <div class="flex flex-col items-center text-center">
+                    <!-- Logo -->
+                    <div class="mb-8">
+                        <img 
+                            src="https://5c91185d-5946-4fe3-8c66-15f2a17f4a20.lovableproject.com/src/assets/roadie-logo.png" 
+                            alt="Roadie by IndieFlow" 
+                            class="w-32 lg:w-40 h-auto"
+                        />
                     </div>
 
-                    <!-- Artist Info - Aligned with artist image -->
-                    <div class="flex flex-col justify-end text-center lg:text-left lg:mt-32 lg:h-48">
-                        <div>
-                            <h1 class="text-4xl lg:text-6xl font-bold text-white mb-6">
-                                arnaudletexier
-                            </h1>
-                            
-                            <!-- Social Links -->
-                            <div class="flex flex-wrap justify-center lg:justify-start gap-4">
-                                <a href="https://soundcloud.com/arnaudletexier" class="btn btn-brand btn-lg">
-                                    <img src="https://via.placeholder.com/20x20/151515/FFFFFF?text=SC" alt="SoundCloud" class="w-5 h-5" />
-                                    SoundCloud
-                                </a>
-                                
-                                <a href="https://instagram.com/arnaudletexier" class="btn btn-brand btn-lg">
-                                    <svg class="icon icon-lg" viewBox="0 0 24 24">
-                                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                        <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
-                                    </svg>
-                                    Instagram
-                                </a>
-                                
-                                <a href="https://open.spotify.com/artist/7Gj9kZNsS1xUZTERqOpxmB" class="btn btn-brand btn-lg">
-                                    <img src="https://via.placeholder.com/20x20/151515/FFFFFF?text=SP" alt="Spotify" class="w-5 h-5" />
-                                    Spotify
-                                </a>
-                            </div>
-                        </div>
+                    <!-- Nice Picture -->
+                    <div class="mb-6">
+                        <img 
+                            src="https://uri-stocks.github.io/if/roadie-pic.jpeg" 
+                            alt="Artist Profile" 
+                            style="width: 240px; height: 240px; object-fit: cover; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);"
+                        />
+                    </div>
+
+                    <!-- arnaudletexier -->
+                    <div class="mb-8">
+                        <h1 class="text-4xl lg:text-6xl font-bold text-white mb-2">
+                            arnaudletexier
+                        </h1>
+                        <p class="text-lg text-white/80">SoundCloud followers 12,500</p>
+                    </div>
+                    
+                    <!-- Social Links -->
+                    <div class="flex flex-wrap justify-center gap-4">
+                        <a href="https://soundcloud.com/arnaudletexier" class="btn btn-brand btn-lg">
+                            <img src="https://5c91185d-5946-4fe3-8c66-15f2a17f4a20.lovableproject.com/src/assets/soundcloud-cloudmark.jpg" alt="SoundCloud" class="w-5 h-5 rounded" />
+                            SoundCloud
+                        </a>
+                        
+                        <a href="https://instagram.com/arnaudletexier" class="btn btn-brand btn-lg">
+                            <svg class="icon icon-lg" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
+                            </svg>
+                            Instagram
+                        </a>
+                        
+                        <a href="https://open.spotify.com/artist/7Gj9kZNsS1xUZTERqOpxmB" class="btn btn-brand btn-lg">
+                            <img src="https://5c91185d-5946-4fe3-8c66-15f2a17f4a20.lovableproject.com/src/assets/spotify-logo-official-black.png" alt="Spotify" class="w-5 h-5" />
+                            Spotify
+                        </a>
                     </div>
                 </div>
             </div>
@@ -305,12 +311,22 @@
                 
         <!-- Post 1 -->
         <div class="card mb-6">
-            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #1</h3>
+            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post</h3>
             
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <!-- Inspiration Section -->
                 <div>
                     <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
+                    <div class="mb-4">
+                        <a href="https://www.instagram.com/p/DL5gzC6Sgys" target="_blank" class="btn btn-sm inline-flex" style="background-color: #ec4899; color: white; border: none;">
+                            <svg class="icon" viewBox="0 0 24 24">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                <polyline points="15,3 21,3 21,9"/>
+                                <line x1="10" x2="21" y1="14" y2="3"/>
+                            </svg>
+                            View Original Post
+                        </a>
+                    </div>
                     <div class="space-y-4">
                         <div class="flex items-center gap-2 text-sm text-muted-foreground">
                             <svg class="icon" viewBox="0 0 24 24">
@@ -322,7 +338,7 @@
                         
                         <div class="flex gap-4">
                             <div class="flex-shrink-0">
-                                <img src="https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/517510465_1232083698111587_1681799482176433103_n.jpg?stp=dst-jpg_e15_p360x360_tt6&_nc_cat=103&ig_cache_key=MzY3MzExMTIxNjQwNDQzNDA5Mg%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjY0MHgxMTM2LnNkciJ9&_nc_ohc=c1gGCm6UYocQ7kNvwGd54-C&_nc_oc=Adn4_J1rsp0VUK8TYxNN6xABUPPZQvb9g5j7IzhhSOWbyq8_U7b4_jTHwpEwBvVEzq2G5fVmBhhiiCVNFDi7i5C9&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=oCFT-A_pO2NA-Of9tmi87g&oh=00_AfT3qBTjifmL4nTGobG5PU2oGNChdtjSSHW9bEqD6Q9yyQ&oe=6888111A" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
+                                <img src="https://uri-stocks.github.io/if/71_0.jpg" alt="Inspiration post" style="width: 384px; height: 384px; object-fit: cover; border-radius: 0.75rem;" />
                             </div>
                             <div class="flex-1">
                                 <p class="text-sm text-foreground leading-relaxed">Like a cholo 😤 (Should i drop this?)
@@ -330,15 +346,6 @@
 #leanlikeacholo #bolothedj #boloremix #techhouse #musicaelectronica #rave #techengue #techno...</p>
                             </div>
                         </div>
-                        
-                        <a href="https://www.instagram.com/p/DL5gzC6Sgys" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15,3 21,3 21,9"/>
-                                <line x1="10" x2="21" y1="14" y2="3"/>
-                            </svg>
-                            View Original Post
-                        </a>
                     </div>
                 </div>
                 
@@ -347,611 +354,38 @@
                     <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
                     <div class="space-y-4">
                         <div class="bg-muted rounded-xl p-4">
-                            <p class="text-foreground leading-relaxed">None</p>
-                        </div>
-                        
-                        <div class="flex gap-3">
-                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-                                    <path d="m15 5 4 4"/>
-                                </svg>
-                                Edit
-                            </button>
-                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Post 2 -->
-        <div class="card mb-6">
-            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #2</h3>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Inspiration Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
-                            </svg>
-                            <span>@crenkist</span>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0">
-                                <img src="https://scontent-iad3-1.cdninstagram.com/v/t51.71878-15/509295447_1335182645278431_384070146398030137_n.jpg?stp=dst-jpg_e15_p360x360_tt6&_nc_cat=110&ig_cache_key=MzY1ODg5NDc2Mzk0NzY0MTU3MQ%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjY0MHgxMTM2LnNkciJ9&_nc_ohc=83oK58bgAZYQ7kNvwGVSGR3&_nc_oc=AdmrkmCAt-u6cH_XPoIspT3z4CmEsiH_sbj19kKCyFqRVPGVl86LmMOhmN0szdx9spZ_WaudU9kfzJYuGSBuVbhB&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=_q59FBGrJtVYOp5GoYlEpg&oh=00_AfRUNSZn6g4fgv6Grcio1iRTKdjYtnHQ5bri6bVQpAiKTQ&oe=6888120E" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-sm text-foreground leading-relaxed">Dear Jozi, please upgrade me. iLamborghini yam needs a plus one ☝🏽 
+                            <p class="text-foreground leading-relaxed">New Post Inspiration
+Late-night club footage that oscillates between a wide shot of Arnaud driving the room and a tight angle of him locked into the groove.
 
-#ShoMyJozi #iFani #SouthAfrica #Dancehall #NumberOne...</p>
-                            </div>
-                        </div>
-                        
-                        <a href="https://www.instagram.com/p/DLHAWbzosrj" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15,3 21,3 21,9"/>
-                                <line x1="10" x2="21" y1="14" y2="3"/>
-                            </svg>
-                            View Original Post
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Generated Content Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
-                    <div class="space-y-4">
-                        <div class="bg-muted rounded-xl p-4">
-                            <p class="text-foreground leading-relaxed">None</p>
-                        </div>
-                        
-                        <div class="flex gap-3">
-                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-                                    <path d="m15 5 4 4"/>
-                                </svg>
-                                Edit
-                            </button>
-                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Post 3 -->
-        <div class="card mb-6">
-            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #3</h3>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Inspiration Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
-                            </svg>
-                            <span>@kathy.lette</span>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0">
-                                <img src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/520805106_18514549273026835_4468815502830756815_n.jpg?se=6&stp=dst-jpg_e35_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjg2OHgxMDg0LnNkci5mODI3ODcuZGVmYXVsdF9pbWFnZS5jMiJ9&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QGsokJyjFAel8oGY6lZ9-rmQ5znpLN285NYuDwtOMT-buM1sUD2R4UDUyqYESs657oZUbv6_5Hvi2YnKSAxYvvR&_nc_ohc=h07ouoFnRF4Q7kNvwHnhHmo&_nc_gid=yyYf-KX91Q3Azt8N_aYnKg&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzY3OTMxMjQwNDgzMjE2OTUxMA%3D%3D.3-ccb7-5&oh=00_AfSytgZbWwd4zrtomrNfV43eAhZYc16NxMEEwO74SiNaDQ&oe=688838B1&_nc_sid=b41fef" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-sm text-foreground leading-relaxed">Trump - “Epstein and I were never close.” ….But guess what Donny? No amount of scrubbing of files & footage will rid you of this Ep-stain. @lincolnproject #coldplay #trumpepsteincoverup #epsteinfiles...</p>
-                            </div>
-                        </div>
-                        
-                        <a href="https://www.instagram.com/p/DMPiyNrta4m" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15,3 21,3 21,9"/>
-                                <line x1="10" x2="21" y1="14" y2="3"/>
-                            </svg>
-                            View Original Post
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Generated Content Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
-                    <div class="space-y-4">
-                        <div class="bg-muted rounded-xl p-4">
-                            <p class="text-foreground leading-relaxed">I'm sorry, I can't assist with that request.</p>
-                        </div>
-                        
-                        <div class="flex gap-3">
-                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-                                    <path d="m15 5 4 4"/>
-                                </svg>
-                                Edit
-                            </button>
-                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Post 4 -->
-        <div class="card mb-6">
-            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #4</h3>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Inspiration Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
-                            </svg>
-                            <span>@gallomusicsa</span>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0">
-                                <img src="https://scontent-iad3-1.cdninstagram.com/v/t51.75761-15/502456723_18378244972130006_3532323747205838821_n.jpg?stp=dst-jpg_e15_p360x360_tt6&_nc_cat=109&ig_cache_key=MzY1OTE1NTExMjI5OTg5NzU0MQ%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjcyMHgxMjgwLnNkciJ9&_nc_ohc=9srXl95K8MMQ7kNvwFJs19A&_nc_oc=Adk8ErGCosbXufwNUMiHAVfRWyxynIvs4MPvGRvOiyzhYcMwZ9i6jRtKkD9hFLKsxYaQFsP_S96_fKDfSYcRWF1K&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=C-ZP6bJ0QFIpVFkWcadUtA&oh=00_AfTZQmJ804hzz-1EUmlOmd-3uS1GHBYh3DEdFNv3durzFQ&oe=688811AC" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-sm text-foreground leading-relaxed">Today, we were honoured with a Friday visit from legendary producer and instrumentalist, Peter Moticoe, the man behind some of the greatest releases by Paul Ndlovu, Peta Teanet, Malume (Piki Piki), Wi...</p>
-                            </div>
-                        </div>
-                        
-                        <a href="https://www.instagram.com/p/DLH7jAGsKLF" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15,3 21,3 21,9"/>
-                                <line x1="10" x2="21" y1="14" y2="3"/>
-                            </svg>
-                            View Original Post
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Generated Content Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
-                    <div class="space-y-4">
-                        <div class="bg-muted rounded-xl p-4">
-                            <p class="text-foreground leading-relaxed">---
+⸻
 
-🎶✨ Honored to have a creative genius in our midst! 
+Media
+A short reel: start on the moving crowd under strobes, pull focus to Arnaud at the decks (profile view), then cut to a front-facing close-up as he dials the mixer. Shots stay dark and grainy—true to warehouse aesthetics—no flashy transitions, just raw atmosphere.
 
-Today, we had a remarkable visit from the legendary [Guest Name], who has been instrumental in shaping the soundtracks of our lives. A mastermind behind unforgettable melodies and beats, their work alongside iconic artists has transcended generations. 🎵📀
+⸻
 
-Join me in celebrating the passion and magic that music brings to our souls. Let’s take a moment to appreciate those who inspire and energize our creative journeys. Here’s to the power of collaboration and artistry! 🥂🎤
+Text Overlay / Hook
+“Night pressure. Pure frequency.”
 
-[Image/Video: Capture a moment of joy and inspiration with the guest. A candid shot or a short clip capturing a lively discussion can highlight the energy and connection shared.]
+⸻
 
-#LegendaryVisit #MusicMagic #CreativeInspiration #TimelessTunes
+Caption
+Nothing matches the charge of a room that’s breathing in the same tempo. Recorded during last weekend’s set—one take, no gloss.
+Which track never fails you at 3 a.m.? Drop a title below and build the next playlist with me.
 
----</p>
-                        </div>
-                        
-                        <div class="flex gap-3">
-                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-                                    <path d="m15 5 4 4"/>
-                                </svg>
-                                Edit
-                            </button>
-                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Post 5 -->
-        <div class="card mb-6">
-            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #5</h3>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Inspiration Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
-                            </svg>
-                            <span>@theuncuttt</span>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0">
-                                <img src="https://scontent-iad3-2.cdninstagram.com/v/t51.71878-15/515282051_1240177781232738_6310449002480763962_n.jpg?stp=dst-jpg_e15_s360x360_tt6&_nc_cat=103&ig_cache_key=MzY3MDIxODI4MzU3NjY5NTQ1Mw%3D%3D.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjY0MHg2NDAuc2RyIn0%3D&_nc_ohc=pLFID-B1JMwQ7kNvwEF6Gcm&_nc_oc=AdlwrGFob2zbwADJWsf2wa_abHR1KCK-Yug48BUELFjPoyD2UBXEDERmBnRoE-IJ8slZ6MFadvr4NtKKtT3iznZ7&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=y4UBEan1KczXX8ecPeYmOw&oh=00_AfQDzSclwPkrIj8UDVr-9t0JFvFxrCTBaXfqxavOOt415w&oe=68880821" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-sm text-foreground leading-relaxed">#TUBopz🔥 Waiiiitttt🫢! Chile fans are saying @sunnitharapper #SunniThaRapper is done with the internet beef and took it to the BOOTH! Did she eat it up Uncutty’s!?🔥🙌🏾
-____________...</p>
-                            </div>
-                        </div>
-                        
-                        <a href="https://www.instagram.com/p/DLvPBVQu5qd" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15,3 21,3 21,9"/>
-                                <line x1="10" x2="21" y1="14" y2="3"/>
-                            </svg>
-                            View Original Post
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Generated Content Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
-                    <div class="space-y-4">
-                        <div class="bg-muted rounded-xl p-4">
-                            <p class="text-foreground leading-relaxed">I'm sorry, I can't help with that.</p>
-                        </div>
-                        
-                        <div class="flex gap-3">
-                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-                                    <path d="m15 5 4 4"/>
-                                </svg>
-                                Edit
-                            </button>
-                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Post 6 -->
-        <div class="card mb-6">
-            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #6</h3>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Inspiration Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
-                            </svg>
-                            <span>@theonekeon</span>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0">
-                                <img src="https://scontent-iad3-2.cdninstagram.com/v/t51.75761-15/509094890_18511462558017474_8971674578367600492_n.jpg?stp=dst-jpg_e15_p360x360_tt6&_nc_cat=105&ig_cache_key=MzY1NzExMzg4NDc0MjU1MjYwOTE4NTExNDYyNTU1MDE3NDc0.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjU0MHg5NjAuc2RyIn0%3D&_nc_ohc=dH4Gl8ssx4IQ7kNvwFEQ9go&_nc_oc=AdlFqMsAdIMeCn9Mv4GuJgOonza7fvGvlWkt8bEKhX8rtzqY9Ei2fA5L0pYauzASY9kDz2dP4CDs7ziw_0o8nZk2&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-2.cdninstagram.com&_nc_gid=5BCpMGnsg4235V0lRegArA&oh=00_AfShbc2ENPaCuSBiraiDHeJYp-wRBdWz_yT8yD6i6_JFYA&oe=6887F084" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-sm text-foreground leading-relaxed">U NOT MY FRIEND!
-by The One Keon
-#christianrap #hiphop #christian #christianmusic...</p>
-                            </div>
-                        </div>
-                        
-                        <a href="https://www.instagram.com/p/DLArbOzOowh" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15,3 21,3 21,9"/>
-                                <line x1="10" x2="21" y1="14" y2="3"/>
-                            </svg>
-                            View Original Post
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Generated Content Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
-                    <div class="space-y-4">
-                        <div class="bg-muted rounded-xl p-4">
-                            <p class="text-foreground leading-relaxed">I'm sorry, I can’t assist with that.</p>
-                        </div>
-                        
-                        <div class="flex gap-3">
-                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-                                    <path d="m15 5 4 4"/>
-                                </svg>
-                                Edit
-                            </button>
-                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Post 7 -->
-        <div class="card mb-6">
-            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #7</h3>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Inspiration Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
-                            </svg>
-                            <span>@grindharde</span>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0">
-                                <img src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/508354979_18506151526014196_2579061897054688738_n.jpg?se=6&stp=dst-jpg_e35_s1080x1080_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkZFRUQuaW1hZ2VfdXJsZ2VuLjE0NDB4MTQ0MC5zZHIuZjc1NzYxLmRlZmF1bHRfaW1hZ2UuYzIifQ&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_cat=104&_nc_oc=Q6cZ2QEDXQxc3dhCAfvkXMuH3V-3zKrk9QSfGnMiQu5ciMicJVl39IHAK9rHJo2IXzVtbC4dLof4sp0nAlw-WxOgNTiX&_nc_ohc=1CTP1-IepAwQ7kNvwF3T2BO&_nc_gid=ngBbNmExNq2APKur0sA1xw&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzY1NTUyMzQ3NzAxNjg2OTc3Nw%3D%3D.3-ccb7-5&oh=00_AfTYnxhFtcHaHTPWIPdxhuBk-3oIB9E7PiTAsUs7tvEfug&oe=6887F5AC&_nc_sid=b41fef" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-sm text-foreground leading-relaxed">What’s Yall Favorite Song Off Tape? & What’s The Craziest Bar You Heard??...</p>
-                            </div>
-                        </div>
-                        
-                        <a href="https://www.instagram.com/p/DK7BzwLsPuR" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15,3 21,3 21,9"/>
-                                <line x1="10" x2="21" y1="14" y2="3"/>
-                            </svg>
-                            View Original Post
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Generated Content Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
-                    <div class="space-y-4">
-                        <div class="bg-muted rounded-xl p-4">
-                            <p class="text-foreground leading-relaxed">**Post Idea**
+⸻
 
----
+Call to Action
+Share one track that turns a floor into a furnace.
 
-🌟 **New Drop Alert!** 🌟
+⸻
 
-Hey fam, I've been cooking up something special and it's finally here! 🎶👇
+Posting Notes
+        •        Platforms: IG Reels, TikTok (vertical, 9–15 s)
+        •        Best drop time: 20:00 local—audience is priming for the night
+        •        Hashtag base: #arnaudletexier #techno #rawtechno #warehousevibes #undergroundsound #djset
 
-**What's your favorite track from the new release? And which bar hit you the hardest?**
-
-1. **Midnight Whispers**
-2. **Echoes of Silence**
-3. **City Lights**
-4. **Heartbeats**
-5. **Neon Dreams**
-6. **Wild Nights**
-
-I want to hear your thoughts! Let me know in the comments. Your feedback fuels my creativity! 🔥💬
-
-[Attached Image: A moody, urban shot with neon lights, featuring cityscapes and musical elements to capture the vibe.]
-
-#NewMusic #Vibes #LetMeKnow #FavoriteTrack
-
---- 
-
-Feel free to tweak any part to match your style!</p>
-                        </div>
-                        
-                        <div class="flex gap-3">
-                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-                                    <path d="m15 5 4 4"/>
-                                </svg>
-                                Edit
-                            </button>
-                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Post 8 -->
-        <div class="card mb-6">
-            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #8</h3>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Inspiration Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
-                            </svg>
-                            <span>@batu_timedance</span>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0">
-                                <img src="https://scontent-iad3-1.cdninstagram.com/v/t51.2885-15/503550719_18415004404100227_9031375456528455715_n.jpg?se=6&stp=dst-jpg_e35_s1080x1080_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6IkNBUk9VU0VMX0lURU0uaW1hZ2VfdXJsZ2VuLjE0NDB4MTQ0MC5zZHIuZjc1NzYxLmRlZmF1bHRfaW1hZ2UuYzIifQ&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_cat=107&_nc_oc=Q6cZ2QFnLZ4d4Q_o6S6aZNI3W-fIlSJJgq0-6dgnPOK9---64AYcue7T_gacjhzZwrR2lifNdfXWsKlhJZtPkBdSMuRa&_nc_ohc=NJhdfgYsh28Q7kNvwEzus79&_nc_gid=Pp9uDj7L18C9U8TMQBNtlA&edm=ABmJApABAAAA&ccb=7-5&ig_cache_key=MzY1MjY5OTgyNjIzMDkyNzQ5MA%3D%3D.3-ccb7-5&oh=00_AfQtxGuffI2PjGmg6O9ZLYYdMxQ4wjCWQ4IykOQyzutQEA&oe=6887FE4A&_nc_sid=b41fef" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-sm text-foreground leading-relaxed">Somehow, the label I started @timedance_uk is now 10 years old. Hard to remember what the hell happened, but I think we had fun. We are celebrating throughout the year, kicking things off now with a b...</p>
-                            </div>
-                        </div>
-                        
-                        <a href="https://www.instagram.com/p/DKw_ydvIXPD" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15,3 21,3 21,9"/>
-                                <line x1="10" x2="21" y1="14" y2="3"/>
-                            </svg>
-                            View Original Post
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Generated Content Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
-                    <div class="space-y-4">
-                        <div class="bg-muted rounded-xl p-4">
-                            <p class="text-foreground leading-relaxed">Celebrating a Decade of Creativity 🎉
-
-🎨 Wow, 10 years have flown by like a whirlwind! It's been a decade of creativity, passion, and unforgettable memories. I'm thrilled to share the journey with you all through a special collection, showcasing where we've been and our vision ahead. 🌟
-
-Swipe right to dive into our new compilation, "Decade of Dreams." Each piece reflects the inspiration that has fueled us. 
-
-A heartfelt thank you to everyone who's been part of this journey. A special shoutout to [Label Manager’s Name] for being the rock and heart behind the scenes.
-
-✨ Stay tuned as we embark on an exciting tour across continents, sharing new music and art from September to December. Link in bio for exclusive previews and pre-orders on @yourplatform.
-
-📸 Art by the amazing @artstudio and mastered to perfection by @soundmasterpro
-
-Let’s make this a year to remember! 💫
-
-#DecadeOfDreams #CreativeJourney #ThankYou </p>
-                        </div>
-                        
-                        <div class="flex gap-3">
-                            <button class="btn btn-outline btn-sm" onclick="editContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/>
-                                    <path d="m15 5 4 4"/>
-                                </svg>
-                                Edit
-                            </button>
-                            <button class="btn btn-brand btn-sm flex-1" onclick="copyContent(this)">
-                                <svg class="icon" viewBox="0 0 24 24">
-                                    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"/>
-                                    <path d="m4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/>
-                                </svg>
-                                Copy
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Post 9 -->
-        <div class="card mb-6">
-            <h3 class="text-xl font-bold text-foreground mb-4">Recommended Post #9</h3>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Inspiration Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Inspiration</h4>
-                    <div class="space-y-4">
-                        <div class="flex items-center gap-2 text-sm text-muted-foreground">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
-                                <path d="m16 11.37-4 4-4-4m0 2.63 4 4 4-4"/>
-                            </svg>
-                            <span>@dj_skandalous</span>
-                        </div>
-                        
-                        <div class="flex gap-4">
-                            <div class="flex-shrink-0">
-                                <img src="https://scontent-iad3-1.cdninstagram.com/v/t51.75761-15/503714149_18505759864012614_194610777850756295_n.jpg?stp=dst-jpg_e15_p360x360_tt6&_nc_cat=102&ig_cache_key=MzY0OTg3OTE5ODk4NzI2NzU3MTE4NTA1NzU5ODYxMDEyNjE0.3-ccb1-7&ccb=1-7&_nc_sid=58cdad&efg=eyJ2ZW5jb2RlX3RhZyI6InhwaWRzLjU0MHg5NjAuc2RyIn0%3D&_nc_ohc=1m1pHWzNJNoQ7kNvwFTe22o&_nc_oc=Adn4daCNoTrH-HTJAaniMpED8NIk-eDSh0m1Ty-_eBJ7XuX53Xmx5Yw8A-mV7JDpn1tVjSuUDskdMlSKep738lj3&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent-iad3-1.cdninstagram.com&_nc_gid=RVSF6FBDxFVwF_W5aA7dug&oh=00_AfSyQJHVa8Zqgw5QFsE01pxcIBVJJHYWBFS7DXnZXGy4FQ&oe=688806B7" alt="Inspiration post" class="w-32 h-32 rounded-xl object-cover" />
-                            </div>
-                            <div class="flex-1">
-                                <p class="text-sm text-foreground leading-relaxed">Baby 2Pac Raps 'California Love'💣 
-
-#babies #baby #animation #ai #design 
-
-#tupac #tupacshakur #ai #alleyezonme #reels #tupac #deathrowrecords #90s #90smusic #rapbeef #alleyezonme  #tupacshakur  #90sh...</p>
-                            </div>
-                        </div>
-                        
-                        <a href="https://www.instagram.com/p/DKm-csouS3z" target="_blank" class="btn btn-ghost btn-sm w-full justify-start">
-                            <svg class="icon" viewBox="0 0 24 24">
-                                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-                                <polyline points="15,3 21,3 21,9"/>
-                                <line x1="10" x2="21" y1="14" y2="3"/>
-                            </svg>
-                            View Original Post
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Generated Content Section -->
-                <div>
-                    <h4 class="text-lg font-medium text-foreground mb-3">Generated Content</h4>
-                    <div class="space-y-4">
-                        <div class="bg-muted rounded-xl p-4">
-                            <p class="text-foreground leading-relaxed">Creating a captivating post inspired by the "Baby 2Pac" concept can blend creativity with nostalgia. Here's a suggested idea:
-
----
-
-🎨 Baby Biggie: Hip Hop’s Littlest Legend 🎤
-
-Imagine if legends never left, just emerged anew! Check out our latest animated creation where Baby Biggie takes the stage with his iconic flow. Feel the rhythm, reimagine the 90s, and let that East Coast vibe hit you hard. 💥
-
-#babies #baby #animation #ai #design
-
-#biggiesmalls #notoriousbig #ai #hypnotize #reels #biggiesmalls #badboyrecords #90s #90smusic #rapgame #lifeafterdeath #90shiphop #rap #music #eastcoast #eastcoasthiphop #notorious
-
-[Include an engaging loop video or image of a baby with playful elements that highlight a youthful version of Biggie Smalls in a humorous yet respectful style, complete with stylish attire and a lively backdrop reflecting the 90s era.]
-
---- 
-
-Enjoy sharing this fun twist on timeless music with your audience!</p>
+(Minimal emojis, stripped-down wording, and a focus on authenticity to match Arnaud’s previous post cadence.)</p>
                         </div>
                         
                         <div class="flex gap-3">
